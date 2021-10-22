@@ -1,87 +1,39 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import AddUser from "./components/AddUser";
-import User from "./components/User";
+import Post from "./components/Post";
 
 const App = () => {
-  const [users, setUsers] = useState([]);
+  let limit = 10;
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    await fetch("https://jsonplaceholder.typicode.com/users")
+    await fetch(`https://jsonplaceholder.typicode.com/posts?_start=0&_limit=${limit}`)
       .then((res) => res.json())
-      .then((data) => setUsers(data))
+      .then((data) => setPosts(data))
       .catch((err) => {
         console.log(err);
       });
   };
 
-  const onAdd = async (name, email) => {
-    await fetch("https://jsonplaceholder.typicode.com/users", {
-      method: "POST",
-      body: JSON.stringify({
-        name: name,
-        email: email,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((res) => {
-        if (res.status !== 201) {
-          return;
-        } else {
-          return res.json();
-        }
-      })
-      .then((data) => {
-        setUsers((users) => [...users, data]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const onDelete = async (id) => {
-    await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => {
-        if (res.status !== 200) {
-          return;
-        } else {
-          setUsers(
-            users.filter((user) => {
-              return user.id !== id;
-            })
-          );
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  console.log(users);
+  console.log(posts);
   return (
     <div className="App">
-      <h3>React Crud Using Jsonplaceholder</h3>
-
+      <h3>Assignment</h3>
       <br />
-      <AddUser onAdd={onAdd} />
       <div>
-        {users.map((user) => (
-          <User
-            id={user.id}
-            key={user.id}
-            name={user.name}
-            email={user.email}
-            onDelete={onDelete}
+        {posts.map((post) => (
+          <Post
+            id={post.id}
+            key={post.id}
+            title={post.title}
+            body={post.body}
           />
         ))}
       </div>
+      <button>Show More</button>
     </div>
   );
 };
