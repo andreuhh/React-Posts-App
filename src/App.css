@@ -28,7 +28,9 @@ p {
   color: white;
   padding: 15px;
   font-size: 21px;
+  font-weight: 600;
   cursor: pointer;
+  margin-bottom: 25px;
 }
 
 @media screen and (max-width: 551px) {
