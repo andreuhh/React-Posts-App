@@ -4,9 +4,12 @@ import './post.css'
 const Post = ({id, title, body}) => {
 
     return (
-        <div className='list'>
-            <h3>{title}</h3>
-            <span>{body}</span>
+        <div className='singlePost'>
+            <div className="singlePost__cont">
+                <div className="circle">{id}</div>
+                <h2>{title}</h2>
+            </div>
+            <p>{body}</p>
         </div>
     )
 }

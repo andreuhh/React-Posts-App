@@ -1,0 +1,32 @@
+.singlePost {
+    margin: 0 auto 25px auto;
+    background-color: #303030;
+    padding: 25px;
+    margin-bottom: 25px;
+    width: 75vw;
+}
+
+.singlePost__cont {
+    display: flex;
+    align-items: center;
+}
+
+.singlePost__cont h2 {
+    margin: 0 0 0 10px;
+}
+
+.singlePost__cont .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #111;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 991px) {
+    .singlePost__cont .circle {
+        display: none;
+    }
+}
