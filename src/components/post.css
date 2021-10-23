@@ -25,6 +25,20 @@
     border-radius: 50%;
 }
 
+.content {
+    /* display: none; */
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.content--selected {
+    /* display: block; */
+    height: auto;
+    max-height: 400px;
+    transition: all 0.3s;
+}
+
 @media screen and (max-width: 991px) {
     .singlePost__cont .circle {
         display: none;

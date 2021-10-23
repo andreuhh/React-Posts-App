@@ -25,7 +25,6 @@ const App = () => {
       });
   };
 
-  console.log(posts);
   return (
     <div className="App">
       <h1>Assignment</h1>
