@@ -22,7 +22,6 @@ const Post = ({id, title, body}) => {
             <div className={selected === id ? 'content--selected' : 'content'}>
                 <p>{body}</p>
             </div>
-            {/* <span>{selected === id ? '-' : '+'}</span> */}
         </div>
     )
 }

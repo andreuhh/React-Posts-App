@@ -4,6 +4,7 @@
     padding: 25px;
     margin-bottom: 25px;
     width: 75vw;
+    cursor: pointer;
 }
 
 .singlePost__cont {
