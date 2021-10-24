@@ -15,7 +15,6 @@ const App = () => {
     fetchData();
   }, []);
 
-  // https://jsonplaceholder.typicode.com/posts?_start=0&_limit=${limit}
   const fetchData = async () => {
     await fetch('https://jsonplaceholder.typicode.com/posts')
       .then((res) => res.json())
