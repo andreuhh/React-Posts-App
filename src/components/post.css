@@ -41,6 +41,10 @@
 }
 
 @media screen and (max-width: 991px) {
+    .singlePost__cont h2 {
+        margin-left: 0;
+    }
+
     .singlePost__cont .circle {
         display: none;
     }

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import "./App.css";
-import Post from "./components/Post";
+//import Post from "./components/Post";
+const Post = lazy(() => import('./components/Post'));
 
 const App = () => {
-  let limit = 10;
   const [posts, setPosts] = useState([]);
   const [visible, setVisible] = useState(10);
 
@@ -26,20 +26,23 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+  
+      <div className="App">
       <h1>Assignment</h1>
       <br />
+      <Suspense fallback={<div>Loading...</div>}>
       <div>
         {posts.slice(0, visible).map((post) => (
-          <Post
-            id={post.id}
-            key={post.id}
-            title={post.title}
-            body={post.body}
-          />
+            <Post
+              id={post.id}
+              key={post.id}
+              title={post.title}
+              body={post.body}
+            />
         ))}
       </div>
       <button className="showMore" onClick={showMorePosts}>Show More</button>
+      </Suspense>
     </div>
   );
 };
